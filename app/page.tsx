@@ -2,7 +2,6 @@ import React from 'react';
 import Converter from '@/components/Converter/Converter';
 import styles from '@/styles/page.module.scss';
 import CurrencySelectorOptions from '@/components/CurrencySelectorOptions';
-import { NextRequest } from 'next/server';
 import { convertCurrencies } from '@/api/exchangerateApi';
 
 

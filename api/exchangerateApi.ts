@@ -36,7 +36,7 @@ export interface ConverterResponce {
 export async function getCurrenciesList() {
     "use server"
     try {
-        const res = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.EXCHANGERATE_API_KEY}/codes`);
+        const res = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.EXCHANGERATE_API_KEY}/codes`, {cache: 'no-cache'});
         const { supported_codes }: CurCodes =  await res.json();
         return supported_codes;
     } catch {
@@ -48,7 +48,7 @@ export async function getCurrenciesList() {
 export async function getRates(cur: string) {
     "use server"
     try {
-        const res = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.EXCHANGERATE_API_KEY}/latest/${cur}`);
+        const res = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.EXCHANGERATE_API_KEY}/latest/${cur}`, {cache: 'no-cache'});
         const { conversion_rates } = await res.json();
         return conversion_rates;
     } catch {
@@ -58,7 +58,7 @@ export async function getRates(cur: string) {
 
 export async function convertCurrencies (fromCurrency: string, toCurrency:string, amount: number) {
     try {
-        const res= await fetch(`https://v6.exchangerate-api.com/v6/${process.env.EXCHANGERATE_API_KEY}/pair/${fromCurrency}/${toCurrency}/${amount}`);
+        const res= await fetch(`https://v6.exchangerate-api.com/v6/${process.env.EXCHANGERATE_API_KEY}/pair/${fromCurrency}/${toCurrency}/${amount}`, {cache: 'no-cache'});
         const { conversion_result }: ConverterResponce = await res.json();
         return conversion_result;
     } catch {
