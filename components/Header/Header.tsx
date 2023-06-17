@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link';
-import styles from './header.module.scss';
+import styles from './Header.module.scss';
 import Image from 'next/image';
 import logo from '@/public/logo.png';
 import { useBaseCurrancy } from '@/hooks/useBaseCurrancy';
