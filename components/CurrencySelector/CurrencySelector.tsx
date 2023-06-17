@@ -1,6 +1,6 @@
+'use client'
 import { ChangeEvent } from 'react';
 import styles from './CurrencySelector.module.scss';
-
 
 export default function CurrencySelector({
   value,
