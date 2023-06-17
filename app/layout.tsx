@@ -13,7 +13,7 @@ export const metadata = {
   description: "Use our free currency converter. Get accurate and reliable foreign exchange rates",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ReduxProvider>
           <Header >
-          <CurrencySelectorOptions />
+            <CurrencySelectorOptions />
           </Header>
             <main className={styles.main}>
               {children}
