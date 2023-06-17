@@ -8,4 +8,6 @@ export interface Currency {
     plural: string
 }
 
-export const getUserCurrancy = async () => await axios.get<any, AxiosPromise<Currency>>('https://api.nbrb.by/exrates/currencies')
+export const getUserCurrancy = async () => await axios.get<any, AxiosPromise<Currency>>(
+    `https://api.ipdata.co/currency?api-key=${process.env.NEXT_PUBLIC_IPDATA_API_KEY}`
+)

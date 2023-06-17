@@ -60,7 +60,6 @@ export async function convertCurrencies (fromCurrency: string, toCurrency:string
     try {
         const res= await fetch(`https://v6.exchangerate-api.com/v6/${process.env.EXCHANGERATE_API_KEY}/pair/${fromCurrency}/${toCurrency}/${amount}`);
         const { conversion_result }: ConverterResponce = await res.json();
-        console.log('conversion_result:', conversion_result);
         return conversion_result;
     } catch {
         throw new Error('Failed to fetch data');
