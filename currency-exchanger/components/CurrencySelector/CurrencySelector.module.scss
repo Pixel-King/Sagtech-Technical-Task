@@ -1,0 +1,27 @@
+.currency-selector {
+  position: relative;
+  display: inline-block;
+  width: calc(50% - 32px / 2);
+
+  select {
+    margin: 10px 5px;
+  }
+
+  .arrow-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+    .currency-selector {
+        width: 100%;
+    }
+
+    .currency-selector select {
+        margin: 10px 0;
+    }
+}
