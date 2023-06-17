@@ -23,7 +23,6 @@ export default function Converter({res, children}: {res?: ConverterResult, child
 
   useEffect(() => {
     if (res) {
-      console.log(res);
       setResult(res);
       setSelectedFromCurrency(res.from);
       setSelectedToCurrency(res.to);

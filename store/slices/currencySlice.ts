@@ -1,21 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { Currency, getBaseCurrency } from '@/api/currencyApi';
+import { getUserCurrancy } from '@/api/ipdataApi';
 
 export const fetchBaseCurrency = createAsyncThunk('currency/fetchCurrency', async () => {
-    const res = await getBaseCurrency();
-    return res.code;
+    const res = await getUserCurrancy();
+    return res.data.code;
 });
 
 interface InitialState {
     baseCurrency: string | null,
-    currencies: Currency[],
     status: 'idle' | 'loading' | 'succeeded' | 'failed',
     error: any,
 } 
 
 const initialState: InitialState = {
     baseCurrency: null,
-    currencies: [],
     status: 'idle',
     error: null,
 }

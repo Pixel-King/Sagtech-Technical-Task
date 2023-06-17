@@ -1,7 +1,6 @@
 import { NumberObject, getRates } from '@/api/exchangerateApi';
 import RatesTable from '@/components/CurrancyRatesTable/RatesTable';
 import styles from '@/styles/page.module.scss';
-import { Metadata } from 'next';
 
 type Props = {
   params: {
@@ -9,14 +8,9 @@ type Props = {
   }
 }
 
-export async function generateMeradata({params: { cur_code }}: Props): Promise<Metadata> {
-    return {
-      title: `${cur_code} rates`,
-    }
-}
-
 async function Rates({params: { cur_code }}: Props) {
   const rates: NumberObject = await getRates(cur_code);
+  console.log('CSO com:', rates);
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>{cur_code} Rates</h1>
