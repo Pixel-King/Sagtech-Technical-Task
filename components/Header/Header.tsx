@@ -36,26 +36,28 @@ export default function Header({children}: {children: React.ReactNode}) {
           <Image src={logo} alt='boroda.dev logo'/>
         </Link>
       </div>
-      <nav className={styles.nav}>
-        <ul>
-          <li>
-            <Link href="/">
-              <span className={pathname === '/' ? styles.active : ''}>Converter</span>
-            </Link>
-          </li>
-          <li>
-            <Link href={`/rates/${currancy}`}>
-              <span className={pathname.startsWith('/rates') ? styles.active : ''}>Exchange Rates</span>
-            </Link>
-          </li>
-        </ul>
-      </nav>
-      <div className={styles.currencySelector}>
-        <label htmlFor="baseCurrency">Base Currency:</label>
-        <select id="baseCurrency" className={styles.select} value={currancy} onChange={changeHandler}>
-          {children}
-        </select>
-        <span className={styles['arrow-icon']}>&#9662;</span>
+      <div className={styles.headerContainer}>
+        <nav className={styles.nav}>
+          <ul>
+            <li>
+              <Link href="/">
+                <span className={pathname === '/' ? styles.active : ''}>Converter</span>
+              </Link>
+            </li>
+            <li>
+              <Link href={`/rates/${currancy}`}>
+                <span className={pathname.startsWith('/rates') ? styles.active : ''}>Exchange Rates</span>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <div className={styles.currencySelector}>
+          <label htmlFor="baseCurrency">Base Currency:</label>
+          <select id="baseCurrency" className={styles.select} value={currancy} onChange={changeHandler}>
+            {children}
+          </select>
+          <span className={styles['arrow-icon']}>&#9662;</span>
+        </div>
       </div>
     </header>
     )
