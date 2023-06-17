@@ -38,6 +38,7 @@ export async function getCurrenciesList() {
     try {
         const res = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.EXCHANGERATE_API_KEY}/codes`);
         const { supported_codes }: CurCodes =  await res.json();
+        console.log('getCL', supported_codes);
         return supported_codes;
     } catch {
         throw new Error('Failed to fetch data');
@@ -50,6 +51,7 @@ export async function getRates(cur: string) {
     try {
         const res = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.EXCHANGERATE_API_KEY}/latest/${cur}`);
         const { conversion_rates } = await res.json();
+        console.log('gR', conversion_rates);
         return conversion_rates;
     } catch {
         throw new Error('Failed to fetch data');
@@ -60,6 +62,7 @@ export async function convertCurrencies (fromCurrency: string, toCurrency:string
     try {
         const res= await fetch(`https://v6.exchangerate-api.com/v6/${process.env.EXCHANGERATE_API_KEY}/pair/${fromCurrency}/${toCurrency}/${amount}`);
         const { conversion_result }: ConverterResponce = await res.json();
+        console.log('cC', conversion_result);
         return conversion_result;
     } catch {
         throw new Error('Failed to fetch data');

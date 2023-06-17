@@ -10,6 +10,7 @@ type Props = {
 
 async function Rates({params: { cur_code }}: Props) {
   const rates: NumberObject = await getRates(cur_code);
+  console.log('CSO com:', rates);
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>{cur_code} Rates</h1>
