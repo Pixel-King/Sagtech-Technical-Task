@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { Currency, getBaseCurrency } from '@/api/currencyApi';
+import { Currency, getUserCurrancy } from '@/api/ipdataApi';
 
 export const fetchBaseCurrency = createAsyncThunk('currency/fetchCurrency', async () => {
-    const res = await getBaseCurrency();
-    return res.code;
+    const res = await getUserCurrancy();
+    return res.data.code;
 });
 
 interface InitialState {

@@ -1,6 +1,6 @@
 import axios, { AxiosPromise } from "axios";
 
-export interface baseCurrency {
+export interface Currency {
     name: string
     code: string
     symbol: string
@@ -8,4 +8,4 @@ export interface baseCurrency {
     plural: string
 }
 
-export const getUserCurrancy = async () => await axios.get<any, AxiosPromise<baseCurrency>>('https://api.nbrb.by/exrates/currencies')
+export const getUserCurrancy = async () => await axios.get<any, AxiosPromise<Currency>>('https://api.nbrb.by/exrates/currencies')
