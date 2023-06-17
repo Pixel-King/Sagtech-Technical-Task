@@ -1,0 +1,29 @@
+$white: #ffffff;
+$my-gray: #f1f1f1;
+
+.ratestable {
+  width: 100%;
+  text-align: center;
+
+  .th,
+  td {
+    border: 1px solid $white;
+  }
+
+  .th {
+    padding: 1rem;
+    background-color: $my-gray;
+  }
+  
+  .tr {
+    &:nth-child(1) {
+      display: none;
+    }
+    &:nth-child(even) {
+      background-color: darken($white, 4%);
+    }
+    &:hover {
+      background-color: darken($white, 8%);
+    }
+  }
+}
