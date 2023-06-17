@@ -1,6 +1,6 @@
 import { getCurrenciesList } from "@/api/exchangerateApi";
 
-const CurrencySelectorOptions = async () => {
+export default async function CurrencySelectorOptions() {
   const currancies = await getCurrenciesList();
   return (
       <>
@@ -10,4 +10,3 @@ const CurrencySelectorOptions = async () => {
       </>
   );
 };
-export default CurrencySelectorOptions;
